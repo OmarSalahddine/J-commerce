@@ -1,0 +1,126 @@
+:root {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #1c1917;
+  background: #f6f3ee;
+  line-height: 1.4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: #9a3412;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: #1c1917;
+  color: #f6f3ee;
+  border: 0;
+  padding: 0.4rem 0.75rem;
+}
+
+button.danger {
+  background: #9f1239;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #d6d3d1;
+}
+
+.brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.session {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+input,
+select {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #a8a29e;
+  background: white;
+  min-width: 8rem;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 28rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: white;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid #e7e5e4;
+}
+
+.banner {
+  padding: 0.6rem 0.75rem;
+  margin: 0.75rem 0;
+}
+
+.error {
+  background: #ffe4e6;
+}
+
+.ok {
+  background: #dcfce7;
+}
