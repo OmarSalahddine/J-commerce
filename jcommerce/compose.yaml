@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: j-commerce-db
+    environment:
+      POSTGRES_DB: jcommerce
+      POSTGRES_USER: jcommerce
+      POSTGRES_PASSWORD: jcommerce
+    ports:
+      - "5432:5432"
+    volumes:
+      - pddata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jcommerce -d jcommerce"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pddata:

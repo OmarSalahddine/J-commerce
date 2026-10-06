@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: jcommerce
+  profiles:
+    active: dev
+  security:
+    user:
+      name: admin
+      password: admin
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
