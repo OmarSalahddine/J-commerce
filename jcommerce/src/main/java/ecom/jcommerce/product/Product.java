@@ -1,6 +1,7 @@
 package ecom.jcommerce.product;
 
 import ecom.jcommerce.common.BaseEntity;
+import ecom.jcommerce.exception.BusinessRuleException;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -84,5 +85,17 @@ public class Product extends BaseEntity {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+    
+    public void decreaseStock(int quantity) {
+        if (quantity > stock) {
+            throw new BusinessRuleException(
+                    "Insufficient stock for " + sku + ": requested " + quantity + ", available " + stock);
+        }
+        stock -= quantity;
+    }
+
+    public void increaseStock(int quantity) {
+        stock += quantity;
     }
 }

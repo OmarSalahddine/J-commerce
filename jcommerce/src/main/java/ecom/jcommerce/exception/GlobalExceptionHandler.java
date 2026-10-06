@@ -1,5 +1,6 @@
 package ecom.jcommerce.exception;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -33,7 +34,17 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     ProblemDetail handleOptimisticLock(ObjectOptimisticLockingFailureException ex) {
         return problem(HttpStatus.CONFLICT, "The resource was modified by another request. Retry with fresh data.");
     }
+    
+    @ExceptionHandler(BusinessRuleException.class)
+    ProblemDetail handleBusinessRule(BusinessRuleException ex) {
+        return problem(HttpStatus.CONFLICT, ex.getMessage());
+    }
 
+    // Raised by the DB itself, e.g. deleting a product that order_lines references.
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    ProblemDetail handleDataIntegrity(DataIntegrityViolationException ex) {
+        return problem(HttpStatus.CONFLICT, "Operation conflicts with existing data (the resource may be referenced by other records).");
+    }
     // Bean Validation failures on @Valid request bodies. The parent class already
     // maps this to 400; we only enrich the body with a field -> message map.
     @Override
